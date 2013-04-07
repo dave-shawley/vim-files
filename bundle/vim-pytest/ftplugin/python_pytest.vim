@@ -38,7 +38,7 @@ if !exists("*PyTest")
 		" now spin through the result set
 		let l:has_results = 0
 		for d in getqflist()
-			if d.isvalid != 0
+			if has_key(d, 'isvalid') && d.isvalid != 0
 				let l:has_results = 1
 				break
 			endif

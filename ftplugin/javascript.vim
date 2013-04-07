@@ -1,4 +1,4 @@
-set tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set cindent copyindent
 set cinoptions=:0l1g0t0(0
 set formatoptions=crqn
