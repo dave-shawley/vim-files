@@ -1,4 +1,4 @@
-set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-set copyindent
+set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+set copyindent number
 set foldmethod=syntax
 
