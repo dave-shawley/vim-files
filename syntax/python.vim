@@ -110,6 +110,9 @@ if exists("python_highlight_all") && python_highlight_all != 0
   if !exists("python_highlight_doctests")
     let python_highlight_doctests = 1
   endif
+  if !exists("python_highlight_line_length_errors")
+    let python_highlight_line_length_errors = 1
+  endif
 endif
 
 " Keywords
@@ -157,6 +160,10 @@ endif
 " Trailing space errors
 if exists("python_highlight_space_errors") && python_highlight_space_errors != 0
   syn match pythonSpaceError	"\S\s\+$" display
+endif
+
+if exists("python_highlight_line_length_errors") && python_highlight_line_length_errors != 0
+  syn match pythonLineLengthError "\%80c.*$" display contained
 endif
 
 " Strings
@@ -334,6 +341,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonError		Error
   HiLink pythonIndentError	Error
   HiLink pythonSpaceError	Error
+  HiLink pythonLineLengthError	Error
 
   HiLink pythonString		String
   HiLink pythonUniString	String
