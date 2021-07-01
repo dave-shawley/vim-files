@@ -1,34 +1,30 @@
-set tabstop=4 shiftwidth=4 autoindent wrapscan showmatch
-set backspace=indent,eol,start
-set exrc modelines=30
-set foldmethod=syntax foldenable foldlevelstart=1024
-set noruler laststatus=2 statusline=%f%y%m%=line=%l/%L\ column=%c\ 
+set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+set nonumber foldlevelstart=99 modelines=40
+set laststatus=2 backspace=indent,eol,start
+set statusline=%f\ %m%y%{&et?'<SP>':'<TAB>'}%=line=%l/%L\ col=%c\ 
+set background=dark
+set wrapscan showmatch nohlsearch
+filetype plugin indent on
+syntax on
 
-let loaded_matchparen=1 " Disable the parenthesis matching plugin
+let loaded_matchparen=1 " Disable the annoying parenthesis matching plugin
 let python_highlight_space_errors=1
-let g:flake8_ignore="W293,W391,E128"
 
-if has("gui_running")
-	set guioptions-=m " no menu bar
-	set guioptions-=M " don't source menu.vim
-	set guioptions-=T " no toolbar
-	set guioptions-=r " no need for a vertical scroll bar
-	set guioptions-=L " no need for a horizontal scroll bar
-	set guioptions+=e " allow tab pages
-	map <F2> :set lines=100<CR>
-else
-	set background=dark
-	colorscheme murphy
-endif
-
+" Make diffs pretty in the console too!
 if &diff
   colorscheme solarized8_high
   set diffopt+=iwhite
 endif
 
+" I don't use dark mode in JetBrains
 if $TERMINAL_EMULATOR == "JetBrains-JediTerm"
   set background=light
 endif
 
-filetype plugin indent on
-syntax on
+" Catch the most annoying error when editing /etc/hosts
+au BufRead *etc/hosts syn match ErrorMsg / /
+
+" Because I have to edit deb changelogs :(
+func DebianTimestamp()
+  :read ! date -u '+\%a, \%d \%b \%Y \%H:\%M:\%S \%z'
+endfunction
