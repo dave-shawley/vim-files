@@ -1,3 +1,6 @@
 [submodule "pack/local/start/editorconfig-vim"]
 	path = pack/local/start/editorconfig-vim
 	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule "pack/themes/opt/solarized8"]
+	path = pack/themes/opt/solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
