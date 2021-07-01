@@ -21,5 +21,14 @@ else
 	colorscheme murphy
 endif
 
+if &diff
+  colorscheme solarized8_high
+  set diffopt+=iwhite
+endif
+
+if $TERMINAL_EMULATOR == "JetBrains-JediTerm"
+  set background=light
+endif
+
 filetype plugin indent on
 syntax on
